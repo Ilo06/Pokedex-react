@@ -16,7 +16,7 @@ export default function Card() {
       <h1>Pokemon List</h1>
       <ul>
         {pokemons.map((pokemon, index) => {
-          const id = pokemon.url.split("/")[6]; // ID depuis URL
+          const id = pokemon.url.split("/")[6]; 
           const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
           return (
