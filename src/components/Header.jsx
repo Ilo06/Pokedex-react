@@ -1,8 +1,6 @@
 import whiteBall from "../../public/pokeball_minimal.png"
 
 export default function Header({ search, setSearch }) {
-    const searchBar = document.getElementById("searchbar")
-
     return (
         <>
             <div className="bg-primary-red text-primary-white  top-5 z-20 px-4 py-4 rounded-2xl flex row justify-between cursor-pointer shadow-lg">
