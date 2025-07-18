@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 
 export default function Card({ offset, search }) {
@@ -30,6 +31,7 @@ export default function Card({ offset, search }) {
                             weight: details.weight,
                             abilities: details.abilities.map((a) => a.ability.name),
                             moves: details.moves.slice(0, 3).map((m) => m.move.name),
+                            types: details.types.map((t) => t.type.name),
                             generation: species.generation.name,
                             sprite: details.sprites.front_default,
                         };
@@ -64,6 +66,7 @@ export default function Card({ offset, search }) {
                             </div>
                             <div className="text-sm space-y-1 inset-0 ">
                                 <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
+                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Type :</strong> {pokemon.types.join(", ")}</p>
                                 <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Height :</strong> {pokemon.height}</p>
                                 <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Weight :</strong> {pokemon.weight}</p>
                                 <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
