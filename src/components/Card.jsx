@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 
-export default function Card() {
+export default function Card({ offset }) {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const randomOffset = Math.floor(Math.random()*100)
-
     useEffect(() => {
         const fetchPokemons = async () => {
+            setLoading(true); 
             try {
-                const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${randomOffset}`);
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
                 const data = await res.json();
 
                 const detailedPokemons = await Promise.all(
@@ -21,6 +20,7 @@ export default function Card() {
                         const species = await speciesRes.json();
 
                         return {
+                            id: details.id,
                             name: details.name,
                             height: details.height,
                             weight: details.weight,
@@ -28,7 +28,7 @@ export default function Card() {
                             moves: details.moves.slice(0, 3).map((m) => m.move.name),
                             generation: species.generation.name,
                             sprite: details.sprites.front_default,
-                            id: details.id
+                            id: details.id,
                         };
                     })
                 );
@@ -41,13 +41,13 @@ export default function Card() {
         };
 
         fetchPokemons();
-    }, []);
+    }, [offset]);
 
     if (loading) return <p className="text-center text-lg mt-10">Chargement...</p>;
 
     return (
         <div className="p-6">
-            <h1 className="text-3xl font-bold text-center mb-8">Liste des Pokémon</h1>
+            <h1 className="text-3xl font-bold text-center mb-8">Pokemon List</h1>
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
                     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
@@ -59,6 +59,7 @@ export default function Card() {
                                 <h2 className="text-xl font-semibold capitalize">{pokemon.name}</h2>
                             </div>
                             <div className="text-sm space-y-1">
+                                <p><strong>Id :</strong> {pokemon.id}</p>
                                 <p><strong>Taille :</strong> {pokemon.height}</p>
                                 <p><strong>Poids :</strong> {pokemon.weight}</p>
                                 <p><strong>Talents :</strong> {pokemon.abilities.join(", ")}</p>
