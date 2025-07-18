@@ -47,24 +47,24 @@ export default function Card({ offset }) {
 
     return (
         <div className="p-6">
-            <h1 className="text-3xl font-bold text-center mb-8">Pokemon List</h1>
+            <h1 className="text-4xl font-bold text-center mb-8">Pokemon List</h1>
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
                     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
 
                     return (
-                        <div key={pokemon.name} className="border-4 border-red-500 bg-white rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
+                        <div key={pokemon.name} className="border-4 border-secondar-red cursor-pointer bg-white rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
                             <div className="flex flex-col items-center mb-4">
                                 <img src={image} alt={pokemon.name} className="w-25 h-25 mb-2" />
                                 <h2 className="text-xl font-semibold capitalize">{pokemon.name}</h2>
                             </div>
                             <div className="text-sm space-y-1">
-                                <p><strong>Id :</strong> {pokemon.id}</p>
-                                <p><strong>Taille :</strong> {pokemon.height}</p>
-                                <p><strong>Poids :</strong> {pokemon.weight}</p>
-                                <p><strong>Talents :</strong> {pokemon.abilities.join(", ")}</p>
-                                <p><strong>Attaques :</strong> {pokemon.moves.join(", ")}</p>
-                                <p><strong>Génération :</strong> {pokemon.generation}</p>
+                                <p className="bg-primary-blue w-fit px-3 py-1 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
+                                <p><strong>Height :</strong> {pokemon.height}</p>
+                                <p><strong>Weight :</strong> {pokemon.weight}</p>
+                                <p><strong>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
+                                <p><strong>Attacks :</strong> {pokemon.moves.join(", ")}</p>
+                                <p><strong>Generation :</strong> {pokemon.generation}</p>
                             </div>
                         </div>
                     );
