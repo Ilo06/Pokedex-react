@@ -4,10 +4,12 @@ export default function Card() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const randomOffset = Math.floor(Math.random()*100)
+
     useEffect(() => {
         const fetchPokemons = async () => {
             try {
-                const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=15");
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${randomOffset}`);
                 const data = await res.json();
 
                 const detailedPokemons = await Promise.all(

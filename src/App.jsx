@@ -1,7 +1,7 @@
 
 import './index.css'
-import Card from './assets/components/Card.jsx'
-import Header from './assets/components/Header.jsx'
+import Card from './components/Card.jsx';
+import Header from './components/Header.jsx'
 
 function App() {
 
