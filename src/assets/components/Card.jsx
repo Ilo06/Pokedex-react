@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
 
 export default function Card() {
-  const [Pokemon, setPokemon] = useState([]); // null au lieu de []
+  const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    const fetchPokemon = () => {
-      fetch("https://pokeapi.co/api/v2/pokemon?limit=1302")
-        .then((response) => response.json())
-        .then((json) => setPokemon(json.results));
-    };
-    fetchPokemon();
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1302")
+      .then((response) => response.json())
+      .then((json) => setPokemons(json.results));
   }, []);
 
-  // Attente du chargement
-  if (!Pokemon) return <p>Chargement...</p>;
+  if (!pokemons.length) return <p>Chargement...</p>;
 
   return (
     <>
-      <h1>{Pokemon.name}</h1>
+      <h1>Pokemon List</h1>
       <ul>
-        <li>Base Experience: {Pokemon.base_experience}</li>
-        <li>Height: {Pokemon.height}</li>
-        <li>Weight: {Pokemon.weight}</li>
-        <li>Type: {Pokemon.types.map(t => t.type.name).join(", ")}</li>
+        {pokemons.map((pokemon, index) => {
+          const id = pokemon.url.split("/")[6]; // ID depuis URL
+          const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+          return (
+            <li key={pokemon.name} style={{ marginBottom: "10px" }}>
+              <img src={image} alt={pokemon.name} width="50" />
+              <span>{pokemon.name}</span>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
