@@ -16,7 +16,7 @@ body{
 }
 
 body{
-    /* background-image: url(../public/pokeball.png); */
+    background-image: url(../public/pokeball.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
