@@ -6,12 +6,13 @@ import SetOffsetButton from './components/setOffsetButton.jsx';
 
 function App() {
   const [offset, setOffset] = useState(0);
+  const [search, setSearch] = useState("")
 
   return (
     <>
-      <Header/>
-      <Card offset={offset} />
-      <SetOffsetButton setOffset={setOffset}/>
+      <Header search={search} setSearch={setSearch} />
+      <Card offset={offset} search={search} />
+      <SetOffsetButton setOffset={setOffset} />
     </>
   )
 }

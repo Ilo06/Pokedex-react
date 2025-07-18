@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Card({ offset }) {
+export default function Card({ offset, search }) {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -11,8 +11,12 @@ export default function Card({ offset }) {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
                 const data = await res.json();
 
+                const filtered = data.results
+                    .filter(p => p.name.toLowerCase().includes(search.toLowerCase()))
+                    .slice(offset, offset + 10);
+
                 const detailedPokemons = await Promise.all(
-                    data.results.slice(offset, offset + 10).map(async (pokemon) => {
+                    filtered.map(async (pokemon) => {
                         const detailsRes = await fetch(pokemon.url);
                         const details = await detailsRes.json();
 
@@ -32,22 +36,22 @@ export default function Card({ offset }) {
                     })
                 );
 
-
                 setPokemons(detailedPokemons);
-                setLoading(false);
             } catch (error) {
                 console.error("Erreur lors du chargement :", error);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchPokemons();
-    }, [offset]);
+    }, [offset, search]);
 
     if (loading) return <p className="text-center text-lg mt-10">Chargement...</p>;
 
     return (
         <div className="p-6">
-            <h1 className="text-4xl font-bold text-center  mb-8">Pokemon List</h1>
+            <h1 className="text-4xl font-bold text-center mb-8">Pokemon List</h1>
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
                     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
