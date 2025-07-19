@@ -4,6 +4,7 @@ import Card from './components/Card.jsx';
 import Header from './components/Header.jsx';
 import SetOffsetButton from './components/setOffsetButton.jsx';
 import NotFoundPage from './components/notFoundPage.jsx';
+import PokemonDetails from './components/PokemonDetails.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react';
@@ -15,17 +16,23 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/", element: <>
+      path: "/",
+      element: <>
         <Header search={search} setSearch={setSearch} />
         <Card offset={offset} search={search} />
         <SetOffsetButton setOffset={setOffset} />
       </>
     },
     {
-      path: "*", element: <NotFoundPage/>
+      path: "*", 
+      element: <NotFoundPage />
+    },
+    {
+      path: "/details/:nameUrl",
+      element: <PokemonDetails/>
     }
   ])
-  
+
   return (
     <StrictMode>
       <RouterProvider router={router} />
