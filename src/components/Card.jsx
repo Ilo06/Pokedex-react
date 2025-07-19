@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Card({ offset, search }) {
     const [pokemons, setPokemons] = useState([]);
@@ -12,9 +13,13 @@ export default function Card({ offset, search }) {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
                 const data = await res.json();
 
-                const filtered = data.results
-                    .filter(p => p.name.toLowerCase().includes(search.toLowerCase()))
-                    .slice(offset, offset + 10);
+                let filtered = data.results.filter(p =>
+                    p.name.toLowerCase().includes(search.toLowerCase())
+                );
+
+                if (search === "") {
+                    filtered = filtered.slice(offset, offset + 10);
+                }
 
                 const detailedPokemons = await Promise.all(
                     filtered.map(async (pokemon) => {
@@ -49,6 +54,7 @@ export default function Card({ offset, search }) {
         fetchPokemons();
     }, [offset, search]);
 
+
     if (loading) return <p className="text-center text-lg mt-10">Chargement...</p>;
 
     return (
@@ -59,21 +65,23 @@ export default function Card({ offset, search }) {
                     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
 
                     return (
-                        <div key={pokemon.name} className="border-4 border-secondar-red cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
-                            <div className="flex flex-col items-center mb-4">
-                                <img src={image} alt={pokemon.name} className="w-25 h-25 mb-2" />
-                                <h2 className="text-xl font-semibold capitalize text-gray-800">{pokemon.name}</h2>
+                        <Link to={`/details/${pokemon.name}`} >
+                            <div key={pokemon.name} className="border-4 border-secondar-red cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
+                                <div className="flex flex-col items-center mb-4">
+                                    <img src={image} alt={pokemon.name} className="w-25 h-25 mb-2" />
+                                    <h2 className="text-xl font-semibold capitalize text-gray-800">{pokemon.name}</h2>
+                                </div>
+                                <div className="text-sm space-y-1 inset-0 ">
+                                    <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-primary-yellow/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Type :</strong> {pokemon.types.join(", ")}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Height :</strong> {pokemon.height}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Weight :</strong> {pokemon.weight}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Attacks :</strong> {pokemon.moves.join(", ")}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Generation :</strong> {pokemon.generation}</p>
+                                </div>
                             </div>
-                            <div className="text-sm space-y-1 inset-0 ">
-                                <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Type :</strong> {pokemon.types.join(", ")}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Height :</strong> {pokemon.height}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Weight :</strong> {pokemon.weight}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Attacks :</strong> {pokemon.moves.join(", ")}</p>
-                                <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Generation :</strong> {pokemon.generation}</p>
-                            </div>
-                        </div>
+                        </Link>
                     );
                 })}
             </div>
