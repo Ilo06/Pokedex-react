@@ -47,7 +47,7 @@ export default function PokemonDetails() {
                 setResult({
                     id: details.id,
                     name: details.name,
-                    image: details.sprites.front_default,
+                    image: details.sprites.other["official-artwork"].front_default,
                     types: details.types.map(t => t.type.name),
                     weight: details.weight,
                     height: details.height,
@@ -69,7 +69,7 @@ export default function PokemonDetails() {
         fetchAllData();
     }, [nameUrl]);
 
-    if (loading) return <Loading/>;
+    if (loading) return <Loading />;
     if (!result) return <p className="text-red-500 text-center">Erreur de chargement – données indisponibles</p>;
 
     return (

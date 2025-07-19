@@ -34,6 +34,7 @@ export default function Card({ offset, search }) {
 
                         return {
                             id: details.id,
+                            image : details.sprites.other["official-artwork"].front_default,
                             name: details.name,
                             height: details.height,
                             weight: details.weight,
@@ -65,13 +66,12 @@ export default function Card({ offset, search }) {
             <h1 className="text-4xl font-bold text-center mb-8">Pokemon List</h1>
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
-                    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
 
                     return (
                         <Link to={`/details/${pokemon.name}`} >
                             <div key={pokemon.name} className="border-4 border-secondar-red cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
                                 <div className="flex flex-col items-center mb-4">
-                                    <img src={image} alt={pokemon.name} className="w-25 h-25 mb-2" />
+                                    <img src={pokemon.image} alt={pokemon.name} className="w-25 h-25 mb-2" />
                                     <h2 className="text-xl font-semibold capitalize text-gray-800">{pokemon.name}</h2>
                                 </div>
                                 <div className="text-sm space-y-1 inset-0 ">
