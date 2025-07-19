@@ -3,7 +3,7 @@ import './index.css'
 import Card from './components/Card.jsx';
 import Header from './components/Header.jsx';
 import SetOffsetButton from './components/setOffsetButton.jsx';
-import NotFoundPage from './components/notFoundPage.jsx';
+import NotFoundPage from './components/NotFoundPage.jsx';
 import PokemonDetails from './components/PokemonDetails.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
