@@ -16,9 +16,10 @@ body{
 }
 
 body{
-    background-image: url(../public/pokeball.png);
+    background-image: url(../public/landscape.png);
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
