@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import Loading from "./Loading.jsx";
+
+
 export default function Card({ offset, search }) {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -55,7 +58,7 @@ export default function Card({ offset, search }) {
     }, [offset, search]);
 
 
-    if (loading) return <p className="text-center text-lg mt-10">Chargement...</p>;
+    if (loading) return <Loading/>;
 
     return (
         <div className="p-6">

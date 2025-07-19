@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Loading from "./Loading.jsx";
 
 export default function PokemonDetails() {
     const { nameUrl } = useParams();
@@ -68,13 +69,13 @@ export default function PokemonDetails() {
         fetchAllData();
     }, [nameUrl]);
 
-    if (loading) return <p className="text-center text-lg mt-10">Loading...</p>;
+    if (loading) return <Loading/>;
     if (!result) return <p className="text-red-500 text-center">Erreur de chargement – données indisponibles</p>;
 
     return (
-        <div className="h-[100vh]">
+        <div className="mh-[80vh]">
             <Link to={"/"}>
-                <i className="bx bxs-x-circle bg-white rounded-full text-primary-red text-4xl"></i>
+                <i className="bx bxs-x-circle absolute bg-white rounded-full text-primary-red text-4xl"></i>
             </Link>
             <section className="py-20 px-8 items-center justify-between cursor-pointer gap-10 flex row inset-0 backdrop-blur-3xl bg-gray-400/30 w-[50vw] rounded-4xl mx-auto">
                 <div className="flex-1/2">
