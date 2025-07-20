@@ -7,6 +7,7 @@ import NotFoundPage from "./components/NotFoundPage.jsx";
 import PokemonDetails from "./components/PokemonDetails.jsx";
 import SetOffsetButton from "./components/setOffsetButton.jsx";
 import "./index.css";
+import"./styles/Footer.css"
 
 import { StrictMode } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
