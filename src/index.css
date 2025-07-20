@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 @import "tailwindcss";
 
 body{
@@ -17,6 +18,7 @@ body{
 
 body{
     background-image: url(../public/landscape.png);
+    font-family: 'Fredoka', 'Poppins', sans-serif;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
