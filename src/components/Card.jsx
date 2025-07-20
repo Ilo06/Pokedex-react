@@ -59,17 +59,17 @@ export default function Card({ offset, search }) {
     }, [offset, search]);
 
 
-    if (loading) return <Loading/>;
+    if (loading) return <Loading />;
 
     return (
         <div className="p-6">
-            <h1 className="text-4xl font-bold text-center mb-8">Pokemon List</h1>
+            {/* <h1 className="text-4xl text-primary-red sticky top-9 z-40 font-bold text-center inset-0 backdrop-blur-3xl bg-gray-400/50 rounded-2xl w-fit justify-self-center px-10 py-1 mb-8">Pokemon List</h1> */}
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
 
                     return (
                         <Link to={`/details/${pokemon.name}`} >
-                            <div key={pokemon.name} className="border-4 border-secondar-red cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
+                            <div key={pokemon.name} className="cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
                                 <div className="flex flex-col items-center mb-4">
                                     <img src={pokemon.image} alt={pokemon.name} className="w-25 h-25 mb-2" />
                                     <h2 className="text-xl font-semibold capitalize text-gray-800">{pokemon.name}</h2>
@@ -77,8 +77,8 @@ export default function Card({ offset, search }) {
                                 <div className="text-sm space-y-1 inset-0 ">
                                     <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
                                     <p className="inset-0 backdrop-blur-sm bg-primary-yellow/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Type :</strong> {pokemon.types.join(", ")}</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Height :</strong> {pokemon.height}</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Weight :</strong> {pokemon.weight}</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Height :</strong> {pokemon.height / 10} m</p>
+                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Weight :</strong> {pokemon.weight} lbs</p>
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Attacks :</strong> {pokemon.moves.join(", ")}</p>
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong>Generation :</strong> {pokemon.generation}</p>

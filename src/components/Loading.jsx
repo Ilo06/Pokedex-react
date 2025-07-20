@@ -3,7 +3,7 @@ import "../index.css"
 
 export default function Loading() {
   return (
-    <div className="cursor-progress gap-10 flex flex-col items-center justify-center inset-0 backdrop-blur-3xl bg-gray-400/30 w-[50vw] rounded-4xl mx-auto">
+    <div className="shadow-2xl shadow-gray-800 cursor-progress gap-10 flex flex-col items-center justify-center inset-0 backdrop-blur-3xl bg-gray-400/30 w-[50vw] rounded-4xl mx-auto">
       <img
         src={LoadingImage}
         className="w-[20vw] bounce"
