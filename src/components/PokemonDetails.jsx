@@ -88,12 +88,12 @@ export default function PokemonDetails() {
                     <p className="text-sm italic text-center text-black mb-4">{result.description}</p>
                 </div>
                 <div className="flex-1/2  border-l-2 pl-10">
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong>Type:</strong> {result.types.join(", ")}</p>
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong>Region:</strong> {result.region}</p>
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong>Weight:</strong> {result.weight} lbs</p>
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong>Height:</strong> {result.height /10} m</p>
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong>Attacks:</strong> {result.attack}</p>
-                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 mb-3 "><strong>Growth Rate:</strong> {result.growthRate}</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong><i className='bx mr-1  bxs-filter'></i>Type:</strong> {result.types.join(", ")}</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong><i className='bxr mr-1 bx-area'></i> Region:</strong> {result.region}</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong><i className='bxr mr-1  bx-dumbbell'></i>Weight:</strong> {result.weight} lbs</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong><i className='bxr mr-1  bx-ruler'></i>Height:</strong> {result.height /10} m</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 "><strong><i className='bxr mr-1  bxs-chess-knight'  ></i> Attacks:</strong> {result.attack}</p>
+                    <p className="my-1 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 mb-3 "><strong><i class='bxr mr-1 bxs-trending-up'  ></i> Growth Rate:</strong> {result.growthRate}</p>
                     <p className="my-1  "><strong>Location:</strong> {result.location.join(", ")}</p>
                     <p className="my-1  "><strong>Évolution:</strong> {result.evolution.join(" → ")}</p>
                 </div>
