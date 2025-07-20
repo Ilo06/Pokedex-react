@@ -8,6 +8,7 @@ import PokemonDetails from './components/PokemonDetails.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react';
+import Footer from './components/Footer.jsx';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Header search={search} setSearch={setSearch} />
         <Card offset={offset} search={search} />
         <SetOffsetButton setOffset={setOffset} />
+		<Footer/>
       </>
     },
     {

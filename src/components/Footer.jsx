@@ -4,7 +4,7 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gradient-to-br from-[#0d2d6a] to-[#2a5298] text-white mt-auto relative overflow-hidden px-6 py-12">
+        <footer className="bg-gradient-to-br from-[#0f3a64] to-[#5a7a98] text-white mt-auto relative overflow-hidden px-6 py-12">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 via-green-300 to-yellow-400 animate-rainbow bg-[length:200%_100%]"></div>
 
             <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 z-10 relative">
