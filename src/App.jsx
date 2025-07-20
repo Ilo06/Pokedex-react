@@ -9,7 +9,7 @@ import PokemonDetails from './components/PokemonDetails.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react';
 import Footer from './components/Footer.jsx';
-
+import "./styles/Footer.css"
 
 function App() {
 	const [offset, setOffset] = useState(0);

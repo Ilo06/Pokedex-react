@@ -17,10 +17,10 @@
 }
 
 .animate-shine::after {
-  animation: shine 4s linear infinite;
+  animation: shine 7s linear infinite;
 }
 
 .animate-rainbow {
   background-size: 200% 100%;
-  animation: rainbow 8s linear infinite;
+  animation: rainbow 10s linear infinite;
 }
