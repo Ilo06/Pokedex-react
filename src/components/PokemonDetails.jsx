@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
+import Error from "./Error.jsx";
 
 export default function PokemonDetails() {
     const { nameUrl } = useParams();
@@ -70,7 +71,7 @@ export default function PokemonDetails() {
     }, [nameUrl]);
 
     if (loading) return <Loading />;
-    if (!result) return <p className="text-red-500 text-center">Erreur de chargement – données indisponibles</p>;
+    if (!result) return <Error title={"400 Bad Request"} content={"The Pokemon you're trying to access does not exist."}/> ;
 
     return (
         <div className="">

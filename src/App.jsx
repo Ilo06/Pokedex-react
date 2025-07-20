@@ -3,7 +3,7 @@ import './index.css'
 import Card from './components/Card.jsx';
 import Header from './components/Header.jsx';
 import SetOffsetButton from './components/setOffsetButton.jsx';
-import NotFoundPage from './components/NotFoundPage.jsx';
+import Error from './components/Error.jsx';
 import PokemonDetails from './components/PokemonDetails.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -25,7 +25,7 @@ function App() {
     },
     {
       path: "*", 
-      element: <NotFoundPage />
+      element: <Error title={"404 Not Found"} content={"The Page you're trying to access does not exist"}/>
     },
     {
       path: "/details/:nameUrl",

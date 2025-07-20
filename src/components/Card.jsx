@@ -59,7 +59,7 @@ export default function Card({ offset, search }) {
     }, [offset, search]);
 
 
-    if (loading) return <Loading/>;
+    if (loading) return <Loading />;
 
     return (
         <div className="p-6">
