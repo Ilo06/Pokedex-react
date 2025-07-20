@@ -94,10 +94,10 @@ export default function PokemonDetails() {
                         <strong className="flex row items-center text-nowrap"><i className='bxr mr-1 bx-area'></i> Region:</strong> {result.region}
                     </p>
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
-                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-dumbbell'></i>Weight:</strong> {result.weight} lbs
+                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-ruler'></i>Height:</strong> {result.height / 10} m
                     </p>
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
-                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-ruler'></i>Height:</strong> {result.height / 10} m
+                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-dumbbell'></i>Weight:</strong> {result.weight} lbs
                     </p>
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
                         <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bxs-chess-knight'></i> Attacks:</strong> {result.attack}
