@@ -24,7 +24,7 @@ function App() {
 					<Header search={search} setSearch={setSearch} />
 					<Card offset={offset} search={search} />
 					<SetOffsetButton setOffset={setOffset} />
-					<Footer />
+          <Footer/>
 				</>
 			),
 		},
