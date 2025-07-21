@@ -12,8 +12,8 @@ import Footer from './components/Footer.jsx';
 import "./styles/Footer.css"
 
 function App() {
-	const [offset, setOffset] = useState(0);
-	const [search, setSearch] = useState("");
+  const [offset, setOffset] = useState(0);
+  const [search, setSearch] = useState("");
 
   const router = createBrowserRouter([
     {
@@ -22,24 +22,24 @@ function App() {
         <Header search={search} setSearch={setSearch} />
         <Card offset={offset} search={search} />
         <SetOffsetButton setOffset={setOffset} />
-		<Footer/>
+        <Footer />
       </>
     },
     {
-      path: "*", 
-      element: <Error title={"404 Not Found"} content={"The Page you're trying to access does not exist"}/>
+      path: "*",
+      element: <Error title={"404 Not Found"} content={"The Page you're trying to access does not exist"} />
     },
     {
       path: "/details/:nameUrl",
-      element: <PokemonDetails/>
+      element: <PokemonDetails />
     }
   ])
 
-	return (
-		<StrictMode>
-			<RouterProvider router={router} />
-		</StrictMode>
-	);
+  return (
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
 }
 
 export default App;
