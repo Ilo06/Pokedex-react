@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Loading from "./Loading.jsx";
 
+import getTypeColorClass from "../script/getColorType.js";
 
 export default function Card({ offset, search }) {
     const [pokemons, setPokemons] = useState([]);
@@ -76,31 +77,40 @@ export default function Card({ offset, search }) {
                                 </div>
                                 <div className="text-sm space-y-1 inset-0 ">
                                     <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
-                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-primary-yellow/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1">
-                                            <i className='bx bxs-filter'></i> Type 
-                                        </strong> : {pokemon.types.join(", ")}
-                                    </p>
+                                    <div className="flex items-center gap-2 flex-wrap  gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1 text-gray-700">
+                                            <i className='bx bxs-filter'></i> Type:
+                                        </strong>
+                                        {pokemon.types.map((type) => (
+                                            <span
+                                                key={type}
+                                                className={`${getTypeColorClass(type)} px-2 py-0.5 rounded-full text-xs font-bold capitalize`}
+                                            >
+                                                {type}
+                                            </span>
+                                        ))}
+                                    </div>
+
 
                                     <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
                                         <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bx-ruler'></i> Height 
+                                            <i className='bxr bx-ruler'></i> Height
                                         </strong> : {pokemon.height / 10} M
                                     </p>
 
                                     <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
                                         <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bx-dumbbell'></i> Weight 
-                                        </strong> : {pokemon.weight /10} KG
+                                            <i className='bxr bx-dumbbell'></i> Weight
+                                        </strong> : {pokemon.weight / 10} KG
                                     </p>
 
-                                
+
 
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-chess-knight'  ></i> Attacks :</strong> {pokemon.moves.join(", ")}</p>
 
                                     <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
                                         <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bxs-dna'></i> Generation 
+                                            <i className='bxr bxs-dna'></i> Generation
                                         </strong> : {pokemon.generation}
                                     </p>
 

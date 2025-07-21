@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
 import Error from "./Error.jsx";
 
+import getTypeColorClass from "../script/getColorType.js";
+
+
 export default function PokemonDetails() {
     const { nameUrl } = useParams();
     const [result, setResult] = useState(null);
@@ -87,9 +90,20 @@ export default function PokemonDetails() {
                     </center>
                     <p className="text-sm italic text-center text-black mb-4">{result.description}</p>
                 </div><div className="flex-1/2  border-l-2 pl-10">
-                    <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
-                        <strong className="flex row items-center text-nowrap"><i className='bx mr-1  bxs-filter'></i>Type:</strong> {result.types.join(", ")}
+                    <p className="my-1 flex flex-wrap gap-2 items-center inset-0 backdrop-blur-2xl bg-white/20 rounded-2xl px-2.5 py-0.5">
+                        <strong className="flex items-center text-nowrap">
+                            <i className='bx mr-1 bxs-filter'></i>Type:
+                        </strong>
+                        {result.types.map((type) => (
+                            <span
+                                key={type}
+                                className={`${getTypeColorClass(type)} px-2 py-0.5 rounded-full text-xs font-bold capitalize`}
+                            >
+                                {type}
+                            </span>
+                        ))}
                     </p>
+
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
                         <strong className="flex row items-center text-nowrap"><i className='bxr mr-1 bx-area'></i> Region:</strong> {result.region}
                     </p>
@@ -97,7 +111,7 @@ export default function PokemonDetails() {
                         <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-ruler'></i>Height:</strong> {result.height / 10} M
                     </p>
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
-                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-dumbbell'></i>Weight:</strong> {result.weight / 10} KG 
+                        <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bx-dumbbell'></i>Weight:</strong> {result.weight / 10} KG
                     </p>
                     <p className="my-1 flex row gap-2 inset-0 backdrop-blur-2xl bg-white/20  rounded-2xl px-2.5 py-0.5 ">
                         <strong className="flex row items-center text-nowrap"><i className='bxr mr-1  bxs-chess-knight'></i> Attacks:</strong> {result.attack}
