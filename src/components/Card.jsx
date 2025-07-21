@@ -85,13 +85,13 @@ export default function Card({ offset, search }) {
                                     <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
                                         <strong className="flex items-center gap-x-1">
                                             <i className='bxr bx-ruler'></i> Height 
-                                        </strong> : {pokemon.height / 10} m
+                                        </strong> : {pokemon.height / 10} M
                                     </p>
 
                                     <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
                                         <strong className="flex items-center gap-x-1">
                                             <i className='bxr bx-dumbbell'></i> Weight 
-                                        </strong> : {pokemon.weight} lbs
+                                        </strong> : {pokemon.weight /10} KG
                                     </p>
 
                                     <p className="flex items-center gap-x-1 text-nowrap inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
