@@ -76,12 +76,38 @@ export default function Card({ offset, search }) {
                                 </div>
                                 <div className="text-sm space-y-1 inset-0 ">
                                     <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-primary-yellow/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bx mr-1  bxs-filter'></i>   Type :</strong> {pokemon.types.join(", ")}</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bx-ruler'></i> Height :</strong> {pokemon.height / 10} m</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bx-dumbbell'></i>Weight :</strong> {pokemon.weight} lbs</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-database'></i>Abilities :</strong> {pokemon.abilities.join(", ")}</p>
+                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-primary-yellow/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1">
+                                            <i className='bx bxs-filter'></i> Type 
+                                        </strong> : {pokemon.types.join(", ")}
+                                    </p>
+
+                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1">
+                                            <i className='bxr bx-ruler'></i> Height 
+                                        </strong> : {pokemon.height / 10} M
+                                    </p>
+
+                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1">
+                                            <i className='bxr bx-dumbbell'></i> Weight 
+                                        </strong> : {pokemon.weight /10} KG
+                                    </p>
+
+                                    <p className="flex items-center gap-x-1 text-nowrap inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1">
+                                            <i className='bxr bxs-database'></i> Abilities 
+                                        </strong> : {pokemon.abilities.join(", ")}
+                                    </p>
+
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-chess-knight'  ></i> Attacks :</strong> {pokemon.moves.join(", ")}</p>
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-dna'></i> Generation :</strong> {pokemon.generation}</p>
+
+                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
+                                        <strong className="flex items-center gap-x-1">
+                                            <i className='bxr bxs-dna'></i> Generation 
+                                        </strong> : {pokemon.generation}
+                                    </p>
+
                                 </div>
                             </div>
                         </Link>
