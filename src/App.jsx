@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './index.css'
 import Card from './components/Card.jsx';
 import Header from './components/Header.jsx';
-import SetOffsetButton from './components/setOffsetButton.jsx';
+import SetOffsetButton from './components/SetOffsetButton.jsx';
 import Error from './components/Error.jsx';
 import PokemonDetails from './components/PokemonDetails.jsx';
 
