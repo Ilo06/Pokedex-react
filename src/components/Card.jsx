@@ -94,11 +94,7 @@ export default function Card({ offset, search }) {
                                         </strong> : {pokemon.weight /10} KG
                                     </p>
 
-                                    <p className="flex items-center gap-x-1 text-nowrap inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bxs-database'></i> Abilities 
-                                        </strong> : {pokemon.abilities.join(", ")}
-                                    </p>
+                                
 
                                     <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-chess-knight'  ></i> Attacks :</strong> {pokemon.moves.join(", ")}</p>
 
