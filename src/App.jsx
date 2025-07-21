@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './index.css'
+import Card from './components/Card.jsx';
+import Header from './components/Header.jsx';
+import SetOffsetButton from './components/SetOffsetButton.jsx';
+import Error from './components/Error.jsx';
+import PokemonDetails from './components/PokemonDetails.jsx';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { StrictMode } from 'react';
+import Footer from './components/Footer.jsx';
+import "./styles/Footer.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [offset, setOffset] = useState(0);
+  const [search, setSearch] = useState("");
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <>
+        <Header search={search} setSearch={setSearch} />
+        <Card offset={offset} search={search} />
+        <SetOffsetButton setOffset={setOffset} />
+        <Footer />
+      </>
+    },
+    {
+      path: "*",
+      element: <Error title={"404 Not Found"} content={"The Page you're trying to access does not exist"} />
+    },
+    {
+      path: "/details/:nameUrl",
+      element: <PokemonDetails />
+    }
+  ])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
 }
 
-export default App
+export default App;
