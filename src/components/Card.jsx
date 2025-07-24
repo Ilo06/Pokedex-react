@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Loading from "./Loading.jsx";
 
-import getTypeColorClass from "../script/getColorType.js";
+import PokeCard from "./PokeCard.jsx";
 
 export default function Card({ offset, search }) {
     const [pokemons, setPokemons] = useState([]);
@@ -64,58 +64,21 @@ export default function Card({ offset, search }) {
 
     return (
         <div className="p-6">
-            {/* <h1 className="text-4xl text-primary-red sticky top-9 z-40 font-bold text-center inset-0 backdrop-blur-3xl bg-gray-400/50 rounded-2xl w-fit justify-self-center px-10 py-1 mb-8">Pokemon List</h1> */}
             <div className="flex flex-wrap justify-center gap-6">
                 {pokemons.map((pokemon) => {
 
                     return (
                         <Link to={`/details/${pokemon.name}`} >
-                            <div key={pokemon.name} className="cursor-pointer inset-0 backdrop-blur-3xl bg-gray-400/30 rounded-2xl w-64 p-4 shadow-lg hover:scale-105 transition-transform">
-                                <div className="flex flex-col items-center mb-4">
-                                    <img src={pokemon.image} alt={pokemon.name} className="w-25 h-25 mb-2" />
-                                    <h2 className="text-xl font-semibold capitalize text-gray-800">{pokemon.name}</h2>
-                                </div>
-                                <div className="text-sm space-y-1 inset-0 ">
-                                    <p className="bg-primary-blue w-fit px-3 py-1 mt-0 text-primary-white font-extrabold rounded-xl my-3"><strong>#</strong> {pokemon.id}</p>
-                                    <div className="flex items-center gap-2 flex-wrap  gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1 text-gray-700">
-                                            <i className='bx bxs-filter'></i> Type:
-                                        </strong>
-                                        {pokemon.types.map((type) => (
-                                            <span
-                                                key={type}
-                                                className={`${getTypeColorClass(type)} px-2 py-0.5 rounded-full text-xs font-bold capitalize`}
-                                            >
-                                                {type}
-                                            </span>
-                                        ))}
-                                    </div>
-
-
-                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bx-ruler'></i> Height
-                                        </strong> : {pokemon.height / 10} M
-                                    </p>
-
-                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bx-dumbbell'></i> Weight
-                                        </strong> : {pokemon.weight / 10} KG
-                                    </p>
-
-
-
-                                    <p className="inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800 px-1"><strong><i className='bxr mr-1  bxs-chess-knight'  ></i> Attacks :</strong> {pokemon.moves.join(", ")}</p>
-
-                                    <p className="flex items-center gap-x-1 inset-0 backdrop-blur-sm bg-white/30 p-1 rounded-xl pl-2 text-gray-800">
-                                        <strong className="flex items-center gap-x-1">
-                                            <i className='bxr bxs-dna'></i> Generation
-                                        </strong> : {pokemon.generation}
-                                    </p>
-
-                                </div>
-                            </div>
+                            <PokeCard
+                                name={pokemon.name}
+                                image={pokemon.image}
+                                id={pokemon.id}
+                                types={pokemon.types}
+                                height={pokemon.height}
+                                weight={pokemon.weight}
+                                moves={pokemon.moves}
+                                generation={pokemon.generation}
+                            />
                         </Link>
                     );
                 })}
