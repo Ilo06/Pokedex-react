@@ -85,12 +85,12 @@ export default function PokemonDetails() {
                 name={result.name}
                 id={result.id}
                 description={result.description}
-                types={result.typs}
+                types={result.types}
                 region={result.region}
                 height={result.height}
                 weight={result.weight}
                 attack={result.attack}
-                growthRate={result.description}
+                growthRate={result.growthRate}
                 location={result.location}
                 evolution={result.evolution}
             />
