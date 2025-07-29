@@ -38,10 +38,10 @@ Créer une Pokédex moderne permettant d’afficher la liste des Pokémon avec l
 npm install
 ```
 
-### ▶️ 2. Lancer l’application en développement
+### ▶️ 2. Lancer l’application
 
 ```bash
-npm start
+npm run dev
 ```
 
 L’application sera accessible à : [http://localhost:3000](http://localhost:3000)
