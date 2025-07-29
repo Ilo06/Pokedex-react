@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 @import "tailwindcss";
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
 
 body{
+    @apply bg-white text-black dark:bg-black dark:text-white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
 }
@@ -23,6 +30,20 @@ body{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: dark) {
+  body, .dark body {
+    background-image: url(../public/landscape_night.png);
+  }
+}
+
+.dark body {
+  background-image: url(../public/landscape_night.png);
+}
+
+.dark .bg-primary-red {
+  background-color: #7b1c1c !important; /* Un rouge plus sombre pour le dark mode */
 }
 
 @keyframes bounceY {
