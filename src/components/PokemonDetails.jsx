@@ -88,7 +88,7 @@ export default function PokemonDetails() {
                     <center>
                         <h3 className="bg-primary-yellow w-fit px-4 rounded-2xl font-bold mb-2 ">#{result.id}</h3>
                     </center>
-                    <p className="text-sm italic text-center text-black mb-4">{result.description}</p>
+                    <p className="text-sm italic text-center text-black dark:text-white mb-4">{result.description}</p>
                 </div><div className="flex-1/2  border-l-2 pl-10">
                     <p className="my-1 flex flex-wrap gap-2 items-center inset-0 backdrop-blur-2xl bg-white/20 rounded-2xl px-2.5 py-0.5">
                         <strong className="flex items-center text-nowrap">
