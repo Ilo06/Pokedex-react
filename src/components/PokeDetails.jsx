@@ -3,7 +3,7 @@ import getTypeColorClass from "../script/getColorType.js";
 
 export default function PokeDetails({ image, name, id, description, types, region, height, weight, attack, growthRate, location, evolution }) {
     return (
-        <section className="py-10 px-2 sm:px-8 items-center justify-between cursor-pointer gap-10 flex flex-col sm:flex-row inset-0 backdrop-blur-3xl bg-gray-400/30 w-3/4 rounded-4xl self-center shadow-2xl shadow-gray-800 mx-auto">
+        <section className="py-10 px-2 sm:px-8 sm:py-20 items-center justify-between cursor-pointer gap-10 flex flex-col sm:flex-row inset-0 backdrop-blur-3xl bg-gray-400/30 w-3/4 rounded-4xl self-center shadow-2xl shadow-gray-800 mx-auto">
             <div className="flex-1/2">
                 <img src={image} className="mx-auto w-40 h-40" />
                 <h1 className="text-3xl font-bold capitalize text-center my-3">{name}</h1>
