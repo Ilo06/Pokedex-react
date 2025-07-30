@@ -1,30 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 @import "tailwindcss";
 
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
+/* 🌐 Police + mise en page générale */
+body {
+  font-family: 'Fredoka', 'Poppins', sans-serif;
+  padding: 20px;
+  background-image: url(../public/landscape.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #1f2937; /* Texte sombre par défaut */
+  transition: background-image 0.5s ease-in-out, color 0.3s ease-in-out;
 }
 
-
-@theme{
-    --color-primary-red: #CC0000;
-    --color-secondar-red: #FF0000;
-    --color-primary-white: #FFFFFF;
-    --color-primary-blue: #3B4CCA;
-    --color-primary-yellow: #FFDE00;
-    --color-secondary-yellow: #B3A125;
+/* 🌙 Mode sombre */
+body.dark {
+  background-image: url(../public/landscape_night.png);
+  color: #aaaaaa; /* Blanc cassé en mode sombre */
 }
 
-body{
-    background-image: url(../public/landscape.png);
-    font-family: 'Fredoka', 'Poppins', sans-serif;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+/* 🎯 Correction du texte noir en mode sombre */
+.dark .text-gray-900 {
+  color: #aaaaaa !important;
 }
 
+/* 🎨 Couleurs personnalisées sans tailwind.config.js */
+@theme {
+  --color-primary-red: #CC0000;
+  --color-secondar-red: #FF0000;
+  --color-primary-white: #FFFFFF;
+  --color-primary-blue: #3B4CCA;
+  --color-primary-yellow: #FFDE00;
+  --color-secondary-yellow: #B3A125;
+}
+
+/* 🌓 Fonds adaptatifs en mode sombre */
+.dark .bg-gray-400\/30 {
+  background-color: rgba(30, 30, 30, 0.3) !important;
+}
+
+.dark .bg-white\/30 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .bg-primary-white {
+  background-color: #222 !important;
+}
+
+.dark input {
+  color: #dddddd !important;
+}
+
+/* 💫 Animations */
 @keyframes bounceY {
   0%, 100% {
     transform: translateY(0);
