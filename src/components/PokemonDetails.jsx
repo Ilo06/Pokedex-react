@@ -76,7 +76,7 @@ export default function PokemonDetails() {
     if (!result) return <Error title={"400 Bad Request"} content={"The Pokemon you're trying to access does not exist."} />;
 
     return (
-        <div className="">
+        <div className="min-h-screen flex">
             <Link to={"/"}>
                 <i className="bx bxs-x-circle absolute bg-white rounded-full text-primary-red text-4xl"></i>
             </Link>
